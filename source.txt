@@ -1,0 +1,1473 @@
+local UIS = game:GetService('UserInputService')
+local Lib = {}
+local Gui = {}
+
+function Lib:CreateUI(name, color)
+	Gui["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+	Gui["1"]["Name"] = [[UI]];
+	Gui["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+
+	UIS.InputBegan:Connect(function(input, processed)
+		if processed then return end
+		
+		if input.KeyCode == Enum.KeyCode.Insert then
+			Gui["1"].Enabled = not Gui["1"].Enabled
+		end
+	end)
+
+	-- StarterGui.UI.Holder
+	Gui["2"] = Instance.new("Frame", Gui["1"]);
+	Gui["2"]["ZIndex"] = 0;
+	Gui["2"]["BorderSizePixel"] = 0;
+	Gui["2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+	Gui["2"]["Size"] = UDim2.new(0, 513, 0, 787);
+	Gui["2"]["Position"] = UDim2.new(0.36763, 0, 0.1295, 0);
+	Gui["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+	Gui["2"]["Name"] = [[Holder]];
+
+	-- StarterGui.UI.Holder.UIGradient
+	Gui["41"] = Instance.new("UIGradient", Gui["2"]);
+	Gui["41"]["Color"] = color;
+
+	-- StarterGui.UI.Holder.MainFrame
+	Gui["3"] = Instance.new("Frame", Gui["2"]);
+	Gui["3"]["BorderSizePixel"] = 0;
+	Gui["3"]["BackgroundColor3"] = Color3.fromRGB(26, 26, 26);
+	Gui["3"]["Size"] = UDim2.new(0, 511, 0, 785);
+	Gui["3"]["Position"] = UDim2.new(0.001, 0, 0.002, 0);
+	Gui["3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+	Gui["3"]["Name"] = [[MainFrame]];
+	
+
+	-- StarterGui.UI.Holder.DragIcon
+	Gui["42"] = Instance.new("ImageLabel", Gui["3"]);
+	Gui["42"]["BorderSizePixel"] = 0;
+	Gui["42"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+	Gui["42"]["ImageTransparency"] = 0.4;
+	Gui["42"]["Image"] = [[http://www.roblox.com/asset/?id=6023426962]];
+	Gui["42"]["Size"] = UDim2.new(0, 25, 0, 25);
+	Gui["42"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+	Gui["42"]["BackgroundTransparency"] = 1;
+	Gui["42"]["Name"] = [[DragIcon]];
+	Gui["42"]["Position"] = UDim2.new(0.92982, 0, 0.01525, 0);
+	Gui["42"]["Visible"] = true;
+
+	Gui["42"].MouseEnter:Connect(function()
+		Gui["2"].Active = true;
+		Gui["2"].Draggable = true;
+	end)
+	
+	Gui["42"].MouseLeave:Connect(function()
+		Gui["2"].Active = false;
+		Gui["2"].Draggable = false;
+	end)
+
+	-- StarterGui.UI.Holder.MainFrame.UITitle
+	Gui["4"] = Instance.new("TextLabel", Gui["3"]);
+	Gui["4"]["TextStrokeTransparency"] = 0;
+	Gui["4"]["BorderSizePixel"] = 0;
+	Gui["4"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+	Gui["4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+	Gui["4"]["TextSize"] = 18;
+	Gui["4"]["FontFace"] = Font.new([[rbxasset://fonts/families/Michroma.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+	Gui["4"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+	Gui["4"]["BackgroundTransparency"] = 1;
+	Gui["4"]["Size"] = UDim2.new(0, 200, 0, 25);
+	Gui["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+	Gui["4"]["Text"] = name;
+	Gui["4"]["Name"] = name;
+	Gui["4"]["Position"] = UDim2.new(0.02935, 0, 0.01414, 0);
+
+
+	-- StarterGui.UI.Holder.MainFrame.Design
+	Gui["5"] = Instance.new("Folder", Gui["3"]);
+	Gui["5"]["Name"] = [[Design]];
+
+
+	-- StarterGui.UI.Holder.MainFrame.Design.Content
+	Gui["6"] = Instance.new("Frame", Gui["5"]);
+	Gui["6"]["BorderSizePixel"] = 0;
+	Gui["6"]["BackgroundColor3"] = Color3.fromRGB(26, 26, 26);
+	Gui["6"]["Size"] = UDim2.new(0, 493, 0, 729);
+	Gui["6"]["Position"] = UDim2.new(0.01761, 0, 0.05495, 0);
+	Gui["6"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+	Gui["6"]["Name"] = [[Content]];
+
+
+	-- StarterGui.UI.Holder.MainFrame.Design.Content.UIStroke
+	Gui["7"] = Instance.new("UIStroke", Gui["6"]);
+	Gui["7"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+	Gui["7"]["Color"] = Color3.fromRGB(68, 68, 68);
+
+
+	-- StarterGui.UI.Holder.MainFrame.Menu
+	Gui["8"] = Instance.new("Frame", Gui["3"]);
+	Gui["8"]["BorderSizePixel"] = 0;
+	Gui["8"]["BackgroundColor3"] = Color3.fromRGB(26, 26, 26);
+	Gui["8"]["Size"] = UDim2.new(0, 481, 0, 29);
+	Gui["8"]["Position"] = UDim2.new(0.02935, 0, 0.06271, 0);
+	Gui["8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+	Gui["8"]["Name"] = [[Menu]];
+
+
+	-- StarterGui.UI.Holder.MainFrame.Menu.UIStroke
+	Gui["9"] = Instance.new("UIStroke", Gui["8"]);
+	Gui["9"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+	Gui["9"]["Color"] = Color3.fromRGB(68, 68, 68);
+
+
+	-- StarterGui.UI.Holder.MainFrame.Menu.UIGridLayout
+	Gui["a"] = Instance.new("UIGridLayout", Gui["8"]);
+	Gui["a"]["CellSize"] = UDim2.new(0, 76, 0, 29);
+	Gui["a"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+	-- StarterGui.UI.Holder.MainFrame.CProvider
+	Gui["d"] = Instance.new("Frame", Gui["3"]);
+	Gui["d"]["BorderSizePixel"] = 0;
+	Gui["d"]["BackgroundColor3"] = Color3.fromRGB(26, 26, 26);
+	Gui["d"]["Size"] = UDim2.new(0, 481, 0, 678);
+	Gui["d"]["Position"] = UDim2.new(0.02935, 0, 0.1107, 0);
+	Gui["d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+	Gui["d"]["Name"] = [[CProvider]];
+
+
+	-- StarterGui.UI.Holder.MainFrame.CProvider.UIStroke
+	Gui["e"] = Instance.new("UIStroke", Gui["d"]);
+	Gui["e"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+	Gui["e"]["Color"] = Color3.fromRGB(68, 68, 68);
+	
+	-- StarterGui.UI.Holder.UIStroke
+	Gui["40"] = Instance.new("UIStroke", Gui["2"]);
+	Gui["40"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+	
+	-- StarterGui.UI.NotificationList
+	Gui["42"] = Instance.new("Frame", Gui["1"]);
+	Gui["42"]["BorderSizePixel"] = 0;
+	Gui["42"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+	Gui["42"]["Size"] = UDim2.new(0.11649, 0, 0.98119, 0);
+	Gui["42"]["Position"] = UDim2.new(0.87784, 0, 0.00753, 0);
+	Gui["42"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+	Gui["42"]["Name"] = [[NotificationList]];
+	Gui["42"]["BackgroundTransparency"] = 1;
+	
+	-- StarterGui.UI.NotificationList.UIListLayout
+	Gui["49"] = Instance.new("UIListLayout", Gui["42"]);
+	Gui["49"]["Padding"] = UDim.new(0, 5);
+	Gui["49"]["VerticalAlignment"] = Enum.VerticalAlignment.Bottom;
+	Gui["49"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+	
+	function Gui:CreateTab(name)
+		local Tab = {}
+		-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne
+		Tab["f"] = Instance.new("Frame", Gui["d"]);
+		Tab["f"]["BorderSizePixel"] = 0;
+		Tab["f"]["BackgroundColor3"] = Color3.fromRGB(26, 26, 26);
+		Tab["f"]["Size"] = UDim2.new(0, 481, 0, 678);
+		Tab["f"]["Position"] = UDim2.new(0, 0, 0, 0);
+		Tab["f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+		Tab["f"]["Name"] = name;
+		
+		-- StarterPack.UI.Holder.MainFrame.Menu.TabOne
+		Tab["b"] = Instance.new("TextButton", Gui["8"]);
+		Tab["b"]["TextStrokeTransparency"] = 0;
+		Tab["b"]["BorderSizePixel"] = 0;
+		Tab["b"]["AutoButtonColor"] = false;
+		Tab["b"]["TextSize"] = 14;
+		Tab["b"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+		Tab["b"]["BackgroundColor3"] = Color3.fromRGB(26, 26, 26);
+		Tab["b"]["FontFace"] = Font.new([[rbxasset://fonts/families/Michroma.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+		Tab["b"]["Size"] = UDim2.new(0, 101, 0, 29);
+		Tab["b"]["Name"] = name;
+		Tab["b"]["Text"] = name;
+		Tab["b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+
+
+		-- StarterPack.UI.Holder.MainFrame.Menu.TabOne.UIStroke
+		Tab["c"] = Instance.new("UIStroke", Tab["b"]);
+		Tab["c"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+		Tab["c"]["Color"] = Color3.fromRGB(68, 68, 68);
+		
+		Tab["b"].Activated:Connect(function()
+			 for i,v in pairs(Gui["d"]:GetChildren()) do
+				if v:IsA('Frame') then
+					v.Visible = false
+				end
+			end
+			for i,v in pairs(Gui["8"]:GetChildren()) do
+				if v:IsA('TextButton') then
+					v.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+				end
+			end
+			if Gui["d"]:FindFirstChild(name) then
+				Gui["d"]:FindFirstChild(name).Visible = true
+			else
+				warn("EyeField >> There is not Tab such as that.")
+			end
+			Tab["b"].BackgroundColor3 = Color3.fromRGB(56, 56, 56)
+		end)
+		
+		function Tab:CreateSection(name, color)
+			local Section = {}
+			
+			Tab["7979797"] = Instance.new("UIGridLayout", Tab["f"])
+			Tab["7979797"].CellSize = UDim2.new(0, 227, 0, 252)
+			
+			-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder
+			Section["10"] = Instance.new("Frame", Tab["f"]);
+			Section["10"]["BorderSizePixel"] = 0;
+			Section["10"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+			Section["10"]["Size"] = UDim2.new(0, 227, 0, 252);
+			Section["10"]["Position"] = UDim2.new(0.01871, 0, 0.0118, 0);
+			Section["10"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+			Section["10"]["Name"] = [[SectionHolder]];
+
+
+			-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.UIGradient
+			Section["11"] = Instance.new("UIGradient", Section["10"]);
+			Section["11"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, color),ColorSequenceKeypoint.new(1.000,color)};
+
+
+			-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.UIStroke
+			Section["12"] = Instance.new("UIStroke", Section["10"]);
+			Section["12"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+
+			-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section
+			Section["13"] = Instance.new("Frame", Section["10"]);
+			Section["13"]["BorderSizePixel"] = 0;
+			Section["13"]["BackgroundColor3"] = Color3.fromRGB(21, 21, 21);
+			Section["13"]["Size"] = UDim2.new(0, 225, 0, 249);
+			Section["13"]["Position"] = UDim2.new(0.00441, 0, 0.00475, 0);
+			Section["13"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+			Section["13"]["Name"] = [[Section]];
+
+
+			-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content
+			Section["14"] = Instance.new("Frame", Section["13"]);
+			Section["14"]["BorderSizePixel"] = 0;
+			Section["14"]["BackgroundColor3"] = Color3.fromRGB(21, 21, 21);
+			Section["14"]["Size"] = UDim2.new(0, 208, 0, 174);
+			Section["14"]["Position"] = UDim2.new(0.03524, 0, 0.14285, 0);
+			Section["14"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+			Section["14"]["Name"] = [[Content]];
+
+
+			-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.UIListLayout
+			Section["15"] = Instance.new("UIListLayout", Section["14"]);
+			Section["15"]["Padding"] = UDim.new(0, 4);
+			Section["15"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+			-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.UITitle
+			Section["3f"] = Instance.new("TextLabel", Section["13"]);
+			Section["3f"]["TextStrokeTransparency"] = 0;
+			Section["3f"]["BorderSizePixel"] = 0;
+			Section["3f"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+			Section["3f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+			Section["3f"]["TextSize"] = 14;
+			Section["3f"]["FontFace"] = Font.new([[rbxasset://fonts/families/Michroma.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+			Section["3f"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+			Section["3f"]["BackgroundTransparency"] = 1;
+			Section["3f"]["Size"] = UDim2.new(0, 200, 0, 25);
+			Section["3f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+			Section["3f"]["Text"] = [[Section]];
+			Section["3f"]["Name"] = [[UITitle]];
+			Section["3f"]["Position"] = UDim2.new(0.05579, 0, 0.04244, 0);
+			
+			function Section:CreateButton(text, callback)
+				local Button = {}
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.ButtonHolder
+				Button["16"] = Instance.new("Frame", Section["14"]);
+				Button["16"]["BorderSizePixel"] = 0;
+				Button["16"]["BackgroundColor3"] = Color3.fromRGB(16, 16, 16);
+				Button["16"]["Size"] = UDim2.new(0, 208, 0, 23);
+				Button["16"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				Button["16"]["Name"] = [[ButtonHolder]];
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.ButtonHolder.UIStroke
+				Button["17"] = Instance.new("UIStroke", Button["16"]);
+				Button["17"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+				Button["17"]["Color"] = Color3.fromRGB(48, 48, 48);
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.ButtonHolder.TextButton
+				Button["18"] = Instance.new("TextButton", Button["16"]);
+				Button["18"]["TextStrokeTransparency"] = 0;
+				Button["18"]["BorderSizePixel"] = 0;
+				Button["18"]["AutoButtonColor"] = false;
+				Button["18"]["TextSize"] = 13;
+				Button["18"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+				Button["18"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+				Button["18"]["FontFace"] = Font.new([[rbxasset://fonts/families/Michroma.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+				Button["18"]["Size"] = UDim2.new(0, 208, 0, 23);
+				Button["18"]["BackgroundTransparency"] = 1;
+				Button["18"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				Button["18"]["Text"] = text;
+				
+				Button["18"].Activated:Connect(callback)
+				
+				return Button
+			end
+			
+			function Section:CreateOnOff(text, callback, color)
+				local OnOff={}
+				local val = false
+				
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TriggerHolder
+				OnOff["19"] = Instance.new("Frame", Section["14"]);
+				OnOff["19"]["BorderSizePixel"] = 0;
+				OnOff["19"]["BackgroundColor3"] = Color3.fromRGB(16, 16, 16);
+				OnOff["19"]["Size"] = UDim2.new(0, 208, 0, 23);
+				OnOff["19"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				OnOff["19"]["Name"] = [[TriggerHolder]];
+				OnOff["19"]["BackgroundTransparency"] = 1;
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TriggerHolder.TextButton
+				OnOff["1a"] = Instance.new("TextButton", OnOff["19"]);
+				OnOff["1a"]["BorderSizePixel"] = 0;
+				OnOff["1a"]["AutoButtonColor"] = false;
+				OnOff["1a"]["TextTransparency"] = 1;
+				OnOff["1a"]["TextSize"] = 14;
+				OnOff["1a"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+				OnOff["1a"]["BackgroundColor3"] = Color3.fromRGB(83, 83, 83);
+				OnOff["1a"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+				OnOff["1a"]["Size"] = UDim2.new(0, 15, 0, 15);
+				OnOff["1a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				OnOff["1a"]["Position"] = UDim2.new(0.01923, 0, 0.17391, 0);
+
+				OnOff["1a"].Activated:Connect(function()
+					-- Toggle `val` and update the background color
+					if val == false then
+						OnOff["1a"].BackgroundColor3 = color
+						val = true
+					else
+						OnOff["1a"].BackgroundColor3 = Color3.fromRGB(83, 83, 83)
+						val = false
+					end
+
+					-- Call the `callback` function with the updated `val`
+					callback(val)
+				end)
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TriggerHolder.TextButton.UIStroke
+				OnOff["1b"] = Instance.new("UIStroke", OnOff["1a"]);
+				OnOff["1b"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+				OnOff["1b"]["Thickness"] = 2;
+				OnOff["1b"]["Color"] = Color3.fromRGB(48, 48, 48);
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TriggerHolder.TextButton.UICorner
+				OnOff["1c"] = Instance.new("UICorner", OnOff["1a"]);
+
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TriggerHolder.UITitle
+				OnOff["1d"] = Instance.new("TextLabel", OnOff["19"]);
+				OnOff["1d"]["TextStrokeTransparency"] = 0;
+				OnOff["1d"]["BorderSizePixel"] = 0;
+				OnOff["1d"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+				OnOff["1d"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+				OnOff["1d"]["TextSize"] = 13;
+				OnOff["1d"]["FontFace"] = Font.new([[rbxasset://fonts/families/Michroma.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+				OnOff["1d"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+				OnOff["1d"]["BackgroundTransparency"] = 1;
+				OnOff["1d"]["Size"] = UDim2.new(0, 176, 0, 18);
+				OnOff["1d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				OnOff["1d"]["Text"] = name;
+				OnOff["1d"]["Name"] = name;
+				OnOff["1d"]["Position"] = UDim2.new(0.13752, 0, 0.17288, 0);
+				return OnOff
+			end
+			
+			function Section:CreateDropDown(text, callback, options)
+				local DropDown = {}
+				local selectedVal = nil
+
+				-- Main dropdown holder frame
+				DropDown["Holder"] = Instance.new("Frame", Section["14"])
+				DropDown["Holder"].BorderSizePixel = 0
+				DropDown["Holder"].BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+				DropDown["Holder"].Size = UDim2.new(0, 208, 0, 23)
+				DropDown["Holder"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+				DropDown["Holder"].Name = "DropdownHolder"
+
+				-- UI Stroke for the holder
+				local holderStroke = Instance.new("UIStroke", DropDown["Holder"])
+				holderStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+				holderStroke.Color = Color3.fromRGB(48, 48, 48)
+
+				-- Main button to show dropdown
+				DropDown["Button"] = Instance.new("TextButton", DropDown["Holder"])
+				DropDown["Button"].TextStrokeTransparency = 0
+				DropDown["Button"].BorderSizePixel = 0
+				DropDown["Button"].AutoButtonColor = false
+				DropDown["Button"].TextSize = 13
+				DropDown["Button"].TextColor3 = Color3.fromRGB(255, 255, 255)
+				DropDown["Button"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				DropDown["Button"].FontFace = Font.new("rbxasset://fonts/families/Michroma.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+				DropDown["Button"].Size = UDim2.new(0, 208, 0, 23)
+				DropDown["Button"].BackgroundTransparency = 1
+				DropDown["Button"].Text = text
+
+				-- Dropdown list frame
+				DropDown["List"] = Instance.new("Frame", DropDown["Holder"])
+				DropDown["List"].Visible = false
+				DropDown["List"].BorderSizePixel = 0
+				DropDown["List"].BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+				DropDown["List"].Size = UDim2.new(0, 208, 0, #options * 23)
+				DropDown["List"].Position = UDim2.new(0, 0, 1, 0)
+				DropDown["List"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+				DropDown["List"].Name = "DropdownList"
+				DropDown["List"].ZIndex = 2
+
+				-- UI Stroke for the dropdown list
+				local listStroke = Instance.new("UIStroke", DropDown["List"])
+				listStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+				listStroke.Color = Color3.fromRGB(48, 48, 48)
+
+				-- UI List layout for dropdown options
+				local listLayout = Instance.new("UIListLayout", DropDown["List"])
+				listLayout.Padding = UDim.new(0, 1)
+				listLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+				-- Toggle dropdown visibility
+				DropDown["Button"].MouseButton1Click:Connect(function()
+					DropDown["List"].Visible = not DropDown["List"].Visible
+				end)
+
+				-- Create dropdown options dynamically
+				for _, value in ipairs(options) do
+					local optionButton = Instance.new("TextButton", DropDown["List"])
+					optionButton.TextStrokeTransparency = 0
+					optionButton.BorderSizePixel = 0
+					optionButton.AutoButtonColor = false
+					optionButton.TextSize = 13
+					optionButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+					optionButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+					optionButton.FontFace = Font.new("rbxasset://fonts/families/Michroma.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+					optionButton.Size = UDim2.new(0, 208, 0, 23)
+					optionButton.BackgroundTransparency = 1
+					optionButton.Text = value
+
+					-- UI Stroke for each option
+					local optionStroke = Instance.new("UIStroke", optionButton)
+					optionStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+					optionStroke.Color = Color3.fromRGB(48, 48, 48)
+
+					-- Option selection logic
+					optionButton.Activated:Connect(function()
+						selectedVal = value
+						DropDown["Button"].Text = value
+						DropDown["List"].Visible = false
+						callback(selectedVal)
+					end)
+				end
+
+				return DropDown
+			end
+
+			function Section:CreateTriggerKeybind(name, callback)
+				local trigKb = {}
+				local isHold = false
+				local selectedKB = Enum.KeyCode.Unknown
+				local val = false
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TrigKeyBndHolder
+				trigKb["2b"] = Instance.new("Frame", Section["14"]);
+				trigKb["2b"]["BorderSizePixel"] = 0;
+				trigKb["2b"]["BackgroundColor3"] = Color3.fromRGB(16, 16, 16);
+				trigKb["2b"]["Size"] = UDim2.new(0, 208, 0, 23);
+				trigKb["2b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				trigKb["2b"]["Name"] = [[TrigKeyBndHolder]];
+				trigKb["2b"]["BackgroundTransparency"] = 1;
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TrigKeyBndHolder.TextButton
+				trigKb["2c"] = Instance.new("TextButton", trigKb["2b"]);
+				trigKb["2c"]["BorderSizePixel"] = 0;
+				trigKb["2c"]["AutoButtonColor"] = false;
+				trigKb["2c"]["TextTransparency"] = 1;
+				trigKb["2c"]["TextSize"] = 14;
+				trigKb["2c"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+				trigKb["2c"]["BackgroundColor3"] = Color3.fromRGB(217, 75, 255);
+				trigKb["2c"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+				trigKb["2c"]["Size"] = UDim2.new(0, 15, 0, 15);
+				trigKb["2c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				trigKb["2c"]["Position"] = UDim2.new(0.01923, 0, 0.17391, 0);
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TrigKeyBndHolder.TextButton.UIStroke
+				trigKb["2d"] = Instance.new("UIStroke", trigKb["2c"]);
+				trigKb["2d"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+				trigKb["2d"]["Thickness"] = 2;
+				trigKb["2d"]["Color"] = Color3.fromRGB(48, 48, 48);
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TrigKeyBndHolder.TextButton.UICorner
+				trigKb["2e"] = Instance.new("UICorner", trigKb["2c"]);
+
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TrigKeyBndHolder.UITitle
+				trigKb["2f"] = Instance.new("TextLabel", trigKb["2b"]);
+				trigKb["2f"]["TextStrokeTransparency"] = 0;
+				trigKb["2f"]["BorderSizePixel"] = 0;
+				trigKb["2f"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+				trigKb["2f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+				trigKb["2f"]["TextSize"] = 13;
+				trigKb["2f"]["FontFace"] = Font.new([[rbxasset://fonts/families/Michroma.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+				trigKb["2f"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+				trigKb["2f"]["BackgroundTransparency"] = 1;
+				trigKb["2f"]["Size"] = UDim2.new(0, 176, 0, 18);
+				trigKb["2f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				trigKb["2f"]["Text"] = name;
+				trigKb["2f"]["Name"] = name;
+				trigKb["2f"]["Position"] = UDim2.new(0.13752, 0, 0.17288, 0);
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TrigKeyBndHolder.KB
+				trigKb["30"] = Instance.new("Frame", trigKb["2b"]);
+				trigKb["30"]["BorderSizePixel"] = 0;
+				trigKb["30"]["BackgroundColor3"] = Color3.fromRGB(132, 132, 132);
+				trigKb["30"]["Size"] = UDim2.new(0, 49, 0, 17);
+				trigKb["30"]["Position"] = UDim2.new(0.74038, 0, 0.17392, 0);
+				trigKb["30"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				trigKb["30"]["Name"] = [[KB]];
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TrigKeyBndHolder.KB.UICorner
+				trigKb["31"] = Instance.new("UICorner", trigKb["30"]);
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TrigKeyBndHolder.KB.KeyBind
+				trigKb["32"] = Instance.new("TextLabel", trigKb["30"]);
+				trigKb["32"]["BorderSizePixel"] = 0;
+				trigKb["32"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+				trigKb["32"]["TextSize"] = 13;
+				trigKb["32"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+				trigKb["32"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+				trigKb["32"]["BackgroundTransparency"] = 1;
+				trigKb["32"]["Size"] = UDim2.new(0, 48, 0, 18);
+				trigKb["32"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				trigKb["32"]["Text"] = [[Select]];
+				trigKb["32"]["Name"] = [[KeyBind]];
+				trigKb["32"]["Position"] = UDim2.new(0.02455, 0, -0.00359, 0);
+				
+				trigKb["30"].MouseEnter:Connect(function()
+					isHold = true
+				end)
+				trigKb["30"].MouseLeave:Connect(function()
+					isHold = false
+				end)
+				
+				trigKb["2c"].Activated:Connect(function()
+					-- Toggle `val` and update the background color
+					if val == false then
+						trigKb["2c"].BackgroundColor3 = color
+						val = true
+					else
+						trigKb["2c"].BackgroundColor3 = Color3.fromRGB(83, 83, 83)
+						val = false
+					end
+
+					-- Call the `callback` function with the updated `val`
+					callback(val)
+				end)
+				
+				-- Connecting an InputBegan event to detect when the user presses a key
+				UIS.InputBegan:Connect(function(input, processed)
+					-- If the input has already been processed, ignore it
+					if processed then return end
+
+					-- Check if the input is from the keyboard and if the keybind selection is active (isHold)
+					if input.UserInputType == Enum.UserInputType.Keyboard and isHold == true then
+						selectedKB = input.KeyCode -- Store the KeyCode of the selected key
+
+						-- Get the last letter of the KeyCode name
+						local keyName = selectedKB.Name -- The full name of the KeyCode
+						local lastLetter = keyName:sub(-1) -- Extract the last letter of the name
+
+						-- Update the text with the last letter of the selected key name
+						trigKb["32"].Text = lastLetter
+					end
+
+					-- Check if a key has been selected and the input matches the selected key
+					if selectedKB and selectedKB ~= Enum.KeyCode.Unknown and input.KeyCode == selectedKB then
+						if val == false then
+							trigKb["2c"].BackgroundColor3 = color -- Change the background color to 'color'
+							val = true
+						else
+							trigKb["2c"].BackgroundColor3 = Color3.fromRGB(83, 83, 83) -- Revert to the original color
+							val = false
+						end
+
+						callback(val) -- Call the callback function with the current value of 'val'
+					end
+				end)
+
+				return trigKb
+			end
+			
+			function Section:CreateTextBox(name)
+				local tb = {}
+				
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TextBox
+				tb["33"] = Instance.new("TextLabel", Section["14"]);
+				tb["33"]["TextStrokeTransparency"] = 0;
+				tb["33"]["BorderSizePixel"] = 0;
+				tb["33"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+				tb["33"]["TextYAlignment"] = Enum.TextYAlignment.Top;
+				tb["33"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+				tb["33"]["TextSize"] = 14;
+				tb["33"]["FontFace"] = Font.new([[rbxasset://fonts/families/Michroma.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+				tb["33"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+				tb["33"]["BackgroundTransparency"] = 1;
+				tb["33"]["Size"] = UDim2.new(0, 208, 0, 42);
+				tb["33"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				tb["33"]["Name"] = name;
+				tb["33"]["Text"] = name;
+				tb["33"]["Position"] = UDim2.new(0, 0, 0.62069, 0);
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TextBox.TextBoxHolder
+				tb["34"] = Instance.new("Frame", tb["33"]);
+				tb["34"]["BorderSizePixel"] = 0;
+				tb["34"]["BackgroundColor3"] = Color3.fromRGB(16, 16, 16);
+				tb["34"]["Size"] = UDim2.new(0, 208, 0, 23);
+				tb["34"]["Position"] = UDim2.new(0, 0, 0.401, 0);
+				tb["34"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				tb["34"]["Name"] = name;
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TextBox.TextBoxHolder.UIStroke
+				tb["35"] = Instance.new("UIStroke", tb["34"]);
+				tb["35"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+				tb["35"]["Color"] = Color3.fromRGB(48, 48, 48);
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TextBox.TextBoxHolder.TextBox
+				tb["36"] = Instance.new("TextBox", tb["34"]);
+				tb["36"]["CursorPosition"] = -1;
+				tb["36"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+				tb["36"]["BorderSizePixel"] = 0;
+				tb["36"]["TextSize"] = 13;
+				tb["36"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+				tb["36"]["FontFace"] = Font.new([[rbxasset://fonts/families/Michroma.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+				tb["36"]["ClearTextOnFocus"] = false;
+				tb["36"]["PlaceholderText"] = [[PlaceholderText]];
+				tb["36"]["Size"] = UDim2.new(0, 200, 0, 23);
+				tb["36"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				tb["36"]["Text"] = "";
+				tb["36"]["PlaceholderText"] = name;
+				tb["36"]["BackgroundTransparency"] = 1;
+				
+				function tb:GetText()
+					return tb["36"].Text
+				end
+				
+				return tb
+			end
+			
+			function Section:CreateSlider(text, min, max, callback)
+				local sld = {}
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.Slider
+				sld["37"] = Instance.new("TextLabel", Section["14"]);
+				sld["37"]["TextStrokeTransparency"] = 0;
+				sld["37"]["BorderSizePixel"] = 0;
+				sld["37"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+				sld["37"]["TextYAlignment"] = Enum.TextYAlignment.Top;
+				sld["37"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+				sld["37"]["TextSize"] = 14;
+				sld["37"]["FontFace"] = Font.new([[rbxasset://fonts/families/Michroma.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+				sld["37"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+				sld["37"]["BackgroundTransparency"] = 1;
+				sld["37"]["Size"] = UDim2.new(0, 208, 0, 42);
+				sld["37"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				sld["37"]["Name"] = [[Slider]];
+				sld["37"]["Text"] = text;
+				sld["37"]["Position"] = UDim2.new(0, 0, 0.62069, 0);
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.Slider.TextBoxHolder
+				sld["38"] = Instance.new("Frame", sld["37"]);
+				sld["38"]["BorderSizePixel"] = 0;
+				sld["38"]["BackgroundColor3"] = Color3.fromRGB(16, 16, 16);
+				sld["38"]["Size"] = UDim2.new(0, 208, 0, 23);
+				sld["38"]["Position"] = UDim2.new(0, 0, 0.401, 0);
+				sld["38"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				sld["38"]["Name"] = [[TextBoxHolder]];
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.Slider.TextBoxHolder.UIStroke
+				sld["39"] = Instance.new("UIStroke", sld["38"]);
+				sld["39"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+				sld["39"]["Color"] = Color3.fromRGB(48, 48, 48);
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.Slider.TextBoxHolder.Bar
+				sld["3a"] = Instance.new("Frame", sld["38"]);
+				sld["3a"]["BorderSizePixel"] = 0;
+				sld["3a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+				sld["3a"]["Size"] = UDim2.new(0, 183, 0, 4);
+				sld["3a"]["Position"] = UDim2.new(0.0625, 0, 0.3913, 0);
+				sld["3a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				sld["3a"]["Name"] = [[Bar]];
+				sld["3a"]["BackgroundTransparency"] = 0.7;
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.Slider.TextBoxHolder.Bar.UICorner
+				sld["3b"] = Instance.new("UICorner", sld["3a"]);
+				sld["3b"]["CornerRadius"] = UDim.new(1, 0);
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.Slider.TextBoxHolder.Bar.DraggableCircle
+				sld["3c"] = Instance.new("Frame", sld["3a"]);
+				sld["3c"]["BorderSizePixel"] = 0;
+				sld["3c"]["BackgroundColor3"] = Color3.fromRGB(75, 75, 75);
+				sld["3c"]["Size"] = UDim2.new(0, 15, 0, 15);
+				sld["3c"]["Position"] = UDim2.new(-0.04634, 0, -1.32609, 0);
+				sld["3c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				sld["3c"]["Name"] = [[DraggableCircle]];
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.Slider.TextBoxHolder.Bar.DraggableCircle.UICorner
+				sld["3d"] = Instance.new("UICorner", sld["3c"]);
+				sld["3d"]["CornerRadius"] = UDim.new(1, 0);
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.Slider.TextBoxHolder.count
+				sld["3e"] = Instance.new("TextLabel", sld["38"]);
+				sld["3e"]["TextStrokeTransparency"] = 0;
+				sld["3e"]["BorderSizePixel"] = 0;
+				sld["3e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+				sld["3e"]["TextSize"] = 13;
+				sld["3e"]["FontFace"] = Font.new([[rbxasset://fonts/families/Michroma.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+				sld["3e"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+				sld["3e"]["BackgroundTransparency"] = 1;
+				sld["3e"]["Size"] = UDim2.new(0, 208, 0, 19);
+				sld["3e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				sld["3e"]["Text"] = min .. " / " .. max;
+				sld["3e"]["Name"] = [[count]];
+				sld["3e"]["Position"] = UDim2.new(0, 0, 0.05547, 0);
+				
+				local bar = sld["3a"]
+				local draggableCircle = sld["3c"]
+				local barAbsoluteSize, barAbsolutePosition
+
+				-- Function to update slider value
+				local function updateSlider(inputPosition)
+					barAbsoluteSize = bar.AbsoluteSize
+					barAbsolutePosition = bar.AbsolutePosition
+
+					-- Calculate relative position within the bar
+					local relativePosition = math.clamp((inputPosition.X - barAbsolutePosition.X) / barAbsoluteSize.X, 0, 1)
+					-- Update draggable circle position, centered on the bar
+					draggableCircle.Position = UDim2.new(relativePosition, -draggableCircle.Size.X.Offset / 2, 0, -5)
+
+					-- Calculate and set the slider value
+					local value = math.floor(min + (max - min) * relativePosition)
+					sld["3e"].Text = tostring(value)
+
+					if callback then
+						callback(value)
+					end
+				end
+
+				-- Connect events to the draggable circle
+				draggableCircle.InputBegan:Connect(function(input)
+					if input.UserInputType == Enum.UserInputType.MouseButton1 then
+						local dragging = true
+
+						local connection
+						connection = UIS.InputChanged:Connect(function(moveInput)
+							if moveInput.UserInputType == Enum.UserInputType.MouseMovement and dragging then
+								updateSlider(moveInput.Position)
+							end
+						end)
+
+						UIS.InputEnded:Connect(function(endInput)
+							if endInput.UserInputType == Enum.UserInputType.MouseButton1 then
+								dragging = false
+								connection:Disconnect()
+							end
+						end)
+					end
+				end)
+
+				return sld
+			end
+			
+			return Section
+		end
+		
+		function Tab:CreateLargeSection(name, color)
+			local Section = {}
+
+			Tab["7979797"] = Instance.new("UIGridLayout", Tab["f"])
+			Tab["7979797"].CellSize = UDim2.new(0, 227, 0, 530)
+
+			-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder
+			Section["10"] = Instance.new("Frame", Tab["f"]);
+			Section["10"]["BorderSizePixel"] = 0;
+			Section["10"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+			Section["10"]["Size"] = UDim2.new(0, 227, 0, 530);
+			Section["10"]["Position"] = UDim2.new(0.01871, 0, 0.0118, 0);
+			Section["10"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+			Section["10"]["Name"] = [[SectionHolder]];
+
+
+			-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.UIGradient
+			Section["11"] = Instance.new("UIGradient", Section["10"]);
+			Section["11"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, color),ColorSequenceKeypoint.new(1.000,color)};
+
+
+			-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.UIStroke
+			Section["12"] = Instance.new("UIStroke", Section["10"]);
+			Section["12"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+
+			-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section
+			Section["13"] = Instance.new("Frame", Section["10"]);
+			Section["13"]["BorderSizePixel"] = 0;
+			Section["13"]["BackgroundColor3"] = Color3.fromRGB(21, 21, 21);
+			Section["13"]["Size"] = UDim2.new(0, 225, 0, 527);
+			Section["13"]["Position"] = UDim2.new(0.00441, 0, 0.00475, 0);
+			Section["13"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+			Section["13"]["Name"] = [[Section]];
+
+
+			-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content
+			Section["14"] = Instance.new("Frame", Section["13"]);
+			Section["14"]["BorderSizePixel"] = 0;
+			Section["14"]["BackgroundColor3"] = Color3.fromRGB(21, 21, 21);
+			Section["14"]["Size"] = UDim2.new(0, 208, 0, 401);
+			Section["14"]["Position"] = UDim2.new(0.03524, 0, 0.14285, 0);
+			Section["14"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+			Section["14"]["Name"] = [[Content]];
+
+
+			-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.UIListLayout
+			Section["15"] = Instance.new("UIListLayout", Section["14"]);
+			Section["15"]["Padding"] = UDim.new(0, 4);
+			Section["15"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+			-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.UITitle
+			Section["3f"] = Instance.new("TextLabel", Section["13"]);
+			Section["3f"]["TextStrokeTransparency"] = 0;
+			Section["3f"]["BorderSizePixel"] = 0;
+			Section["3f"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+			Section["3f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+			Section["3f"]["TextSize"] = 14;
+			Section["3f"]["FontFace"] = Font.new([[rbxasset://fonts/families/Michroma.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+			Section["3f"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+			Section["3f"]["BackgroundTransparency"] = 1;
+			Section["3f"]["Size"] = UDim2.new(0, 200, 0, 25);
+			Section["3f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+			Section["3f"]["Text"] = [[Section]];
+			Section["3f"]["Name"] = [[UITitle]];
+			Section["3f"]["Position"] = UDim2.new(0.05579, 0, 0.02001, 0);
+
+			function Section:CreateButton(text, callback)
+				local Button = {}
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.ButtonHolder
+				Button["16"] = Instance.new("Frame", Section["14"]);
+				Button["16"]["BorderSizePixel"] = 0;
+				Button["16"]["BackgroundColor3"] = Color3.fromRGB(16, 16, 16);
+				Button["16"]["Size"] = UDim2.new(0, 208, 0, 23);
+				Button["16"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				Button["16"]["Name"] = [[ButtonHolder]];
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.ButtonHolder.UIStroke
+				Button["17"] = Instance.new("UIStroke", Button["16"]);
+				Button["17"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+				Button["17"]["Color"] = Color3.fromRGB(48, 48, 48);
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.ButtonHolder.TextButton
+				Button["18"] = Instance.new("TextButton", Button["16"]);
+				Button["18"]["TextStrokeTransparency"] = 0;
+				Button["18"]["BorderSizePixel"] = 0;
+				Button["18"]["AutoButtonColor"] = false;
+				Button["18"]["TextSize"] = 13;
+				Button["18"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+				Button["18"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+				Button["18"]["FontFace"] = Font.new([[rbxasset://fonts/families/Michroma.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+				Button["18"]["Size"] = UDim2.new(0, 208, 0, 23);
+				Button["18"]["BackgroundTransparency"] = 1;
+				Button["18"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				Button["18"]["Text"] = text;
+
+				Button["18"].Activated:Connect(callback)
+
+				return Button
+			end
+
+			function Section:CreateOnOff(text, callback, color)
+				local OnOff={}
+				local val = false
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TriggerHolder
+				OnOff["19"] = Instance.new("Frame", Section["14"]);
+				OnOff["19"]["BorderSizePixel"] = 0;
+				OnOff["19"]["BackgroundColor3"] = Color3.fromRGB(16, 16, 16);
+				OnOff["19"]["Size"] = UDim2.new(0, 208, 0, 23);
+				OnOff["19"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				OnOff["19"]["Name"] = [[TriggerHolder]];
+				OnOff["19"]["BackgroundTransparency"] = 1;
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TriggerHolder.TextButton
+				OnOff["1a"] = Instance.new("TextButton", OnOff["19"]);
+				OnOff["1a"]["BorderSizePixel"] = 0;
+				OnOff["1a"]["AutoButtonColor"] = false;
+				OnOff["1a"]["TextTransparency"] = 1;
+				OnOff["1a"]["TextSize"] = 14;
+				OnOff["1a"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+				OnOff["1a"]["BackgroundColor3"] = Color3.fromRGB(83, 83, 83);
+				OnOff["1a"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+				OnOff["1a"]["Size"] = UDim2.new(0, 15, 0, 15);
+				OnOff["1a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				OnOff["1a"]["Position"] = UDim2.new(0.01923, 0, 0.17391, 0);
+
+				OnOff["1a"].Activated:Connect(function()
+					-- Toggle `val` and update the background color
+					if val == false then
+						OnOff["1a"].BackgroundColor3 = color
+						val = true
+					else
+						OnOff["1a"].BackgroundColor3 = Color3.fromRGB(83, 83, 83)
+						val = false
+					end
+
+					-- Call the `callback` function with the updated `val`
+					callback(val)
+				end)
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TriggerHolder.TextButton.UIStroke
+				OnOff["1b"] = Instance.new("UIStroke", OnOff["1a"]);
+				OnOff["1b"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+				OnOff["1b"]["Thickness"] = 2;
+				OnOff["1b"]["Color"] = Color3.fromRGB(48, 48, 48);
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TriggerHolder.TextButton.UICorner
+				OnOff["1c"] = Instance.new("UICorner", OnOff["1a"]);
+
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TriggerHolder.UITitle
+				OnOff["1d"] = Instance.new("TextLabel", OnOff["19"]);
+				OnOff["1d"]["TextStrokeTransparency"] = 0;
+				OnOff["1d"]["BorderSizePixel"] = 0;
+				OnOff["1d"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+				OnOff["1d"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+				OnOff["1d"]["TextSize"] = 13;
+				OnOff["1d"]["FontFace"] = Font.new([[rbxasset://fonts/families/Michroma.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+				OnOff["1d"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+				OnOff["1d"]["BackgroundTransparency"] = 1;
+				OnOff["1d"]["Size"] = UDim2.new(0, 176, 0, 18);
+				OnOff["1d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				OnOff["1d"]["Text"] = name;
+				OnOff["1d"]["Name"] = name;
+				OnOff["1d"]["Position"] = UDim2.new(0.13752, 0, 0.17288, 0);
+				return OnOff
+			end
+
+			function Section:CreateDropDown(text, callback, options)
+				local DropDown = {}
+				local selectedVal = nil
+
+				-- Main dropdown holder frame
+				DropDown["Holder"] = Instance.new("Frame", Section["14"])
+				DropDown["Holder"].BorderSizePixel = 0
+				DropDown["Holder"].BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+				DropDown["Holder"].Size = UDim2.new(0, 208, 0, 23)
+				DropDown["Holder"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+				DropDown["Holder"].Name = "DropdownHolder"
+
+				-- UI Stroke for the holder
+				local holderStroke = Instance.new("UIStroke", DropDown["Holder"])
+				holderStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+				holderStroke.Color = Color3.fromRGB(48, 48, 48)
+
+				-- Main button to show dropdown
+				DropDown["Button"] = Instance.new("TextButton", DropDown["Holder"])
+				DropDown["Button"].TextStrokeTransparency = 0
+				DropDown["Button"].BorderSizePixel = 0
+				DropDown["Button"].AutoButtonColor = false
+				DropDown["Button"].TextSize = 13
+				DropDown["Button"].TextColor3 = Color3.fromRGB(255, 255, 255)
+				DropDown["Button"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				DropDown["Button"].FontFace = Font.new("rbxasset://fonts/families/Michroma.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+				DropDown["Button"].Size = UDim2.new(0, 208, 0, 23)
+				DropDown["Button"].BackgroundTransparency = 1
+				DropDown["Button"].Text = text
+
+				-- Dropdown list frame
+				DropDown["List"] = Instance.new("Frame", DropDown["Holder"])
+				DropDown["List"].Visible = false
+				DropDown["List"].BorderSizePixel = 0
+				DropDown["List"].BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+				DropDown["List"].Size = UDim2.new(0, 208, 0, #options * 23)
+				DropDown["List"].Position = UDim2.new(0, 0, 1, 0)
+				DropDown["List"].BorderColor3 = Color3.fromRGB(0, 0, 0)
+				DropDown["List"].Name = "DropdownList"
+				DropDown["List"].ZIndex = 2
+
+				-- UI Stroke for the dropdown list
+				local listStroke = Instance.new("UIStroke", DropDown["List"])
+				listStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+				listStroke.Color = Color3.fromRGB(48, 48, 48)
+
+				-- UI List layout for dropdown options
+				local listLayout = Instance.new("UIListLayout", DropDown["List"])
+				listLayout.Padding = UDim.new(0, 1)
+				listLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+				-- Toggle dropdown visibility
+				DropDown["Button"].MouseButton1Click:Connect(function()
+					DropDown["List"].Visible = not DropDown["List"].Visible
+				end)
+
+				-- Create dropdown options dynamically
+				for _, value in ipairs(options) do
+					local optionButton = Instance.new("TextButton", DropDown["List"])
+					optionButton.TextStrokeTransparency = 0
+					optionButton.BorderSizePixel = 0
+					optionButton.AutoButtonColor = false
+					optionButton.TextSize = 13
+					optionButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+					optionButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+					optionButton.FontFace = Font.new("rbxasset://fonts/families/Michroma.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+					optionButton.Size = UDim2.new(0, 208, 0, 23)
+					optionButton.BackgroundTransparency = 1
+					optionButton.Text = value
+
+					-- UI Stroke for each option
+					local optionStroke = Instance.new("UIStroke", optionButton)
+					optionStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+					optionStroke.Color = Color3.fromRGB(48, 48, 48)
+
+					-- Option selection logic
+					optionButton.Activated:Connect(function()
+						selectedVal = value
+						DropDown["Button"].Text = value
+						DropDown["List"].Visible = false
+						callback(selectedVal)
+					end)
+				end
+
+				return DropDown
+			end
+
+			function Section:CreateTriggerKeybind(name, callback)
+				local trigKb = {}
+				local isHold = false
+				local selectedKB = Enum.KeyCode.Unknown
+				local val = false
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TrigKeyBndHolder
+				trigKb["2b"] = Instance.new("Frame", Section["14"]);
+				trigKb["2b"]["BorderSizePixel"] = 0;
+				trigKb["2b"]["BackgroundColor3"] = Color3.fromRGB(16, 16, 16);
+				trigKb["2b"]["Size"] = UDim2.new(0, 208, 0, 23);
+				trigKb["2b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				trigKb["2b"]["Name"] = [[TrigKeyBndHolder]];
+				trigKb["2b"]["BackgroundTransparency"] = 1;
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TrigKeyBndHolder.TextButton
+				trigKb["2c"] = Instance.new("TextButton", trigKb["2b"]);
+				trigKb["2c"]["BorderSizePixel"] = 0;
+				trigKb["2c"]["AutoButtonColor"] = false;
+				trigKb["2c"]["TextTransparency"] = 1;
+				trigKb["2c"]["TextSize"] = 14;
+				trigKb["2c"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+				trigKb["2c"]["BackgroundColor3"] = Color3.fromRGB(217, 75, 255);
+				trigKb["2c"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+				trigKb["2c"]["Size"] = UDim2.new(0, 15, 0, 15);
+				trigKb["2c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				trigKb["2c"]["Position"] = UDim2.new(0.01923, 0, 0.17391, 0);
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TrigKeyBndHolder.TextButton.UIStroke
+				trigKb["2d"] = Instance.new("UIStroke", trigKb["2c"]);
+				trigKb["2d"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+				trigKb["2d"]["Thickness"] = 2;
+				trigKb["2d"]["Color"] = Color3.fromRGB(48, 48, 48);
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TrigKeyBndHolder.TextButton.UICorner
+				trigKb["2e"] = Instance.new("UICorner", trigKb["2c"]);
+
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TrigKeyBndHolder.UITitle
+				trigKb["2f"] = Instance.new("TextLabel", trigKb["2b"]);
+				trigKb["2f"]["TextStrokeTransparency"] = 0;
+				trigKb["2f"]["BorderSizePixel"] = 0;
+				trigKb["2f"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+				trigKb["2f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+				trigKb["2f"]["TextSize"] = 13;
+				trigKb["2f"]["FontFace"] = Font.new([[rbxasset://fonts/families/Michroma.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+				trigKb["2f"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+				trigKb["2f"]["BackgroundTransparency"] = 1;
+				trigKb["2f"]["Size"] = UDim2.new(0, 176, 0, 18);
+				trigKb["2f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				trigKb["2f"]["Text"] = name;
+				trigKb["2f"]["Name"] = name;
+				trigKb["2f"]["Position"] = UDim2.new(0.13752, 0, 0.17288, 0);
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TrigKeyBndHolder.KB
+				trigKb["30"] = Instance.new("Frame", trigKb["2b"]);
+				trigKb["30"]["BorderSizePixel"] = 0;
+				trigKb["30"]["BackgroundColor3"] = Color3.fromRGB(132, 132, 132);
+				trigKb["30"]["Size"] = UDim2.new(0, 49, 0, 17);
+				trigKb["30"]["Position"] = UDim2.new(0.74038, 0, 0.17392, 0);
+				trigKb["30"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				trigKb["30"]["Name"] = [[KB]];
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TrigKeyBndHolder.KB.UICorner
+				trigKb["31"] = Instance.new("UICorner", trigKb["30"]);
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TrigKeyBndHolder.KB.KeyBind
+				trigKb["32"] = Instance.new("TextLabel", trigKb["30"]);
+				trigKb["32"]["BorderSizePixel"] = 0;
+				trigKb["32"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+				trigKb["32"]["TextSize"] = 13;
+				trigKb["32"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+				trigKb["32"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+				trigKb["32"]["BackgroundTransparency"] = 1;
+				trigKb["32"]["Size"] = UDim2.new(0, 48, 0, 18);
+				trigKb["32"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				trigKb["32"]["Text"] = [[Select]];
+				trigKb["32"]["Name"] = [[KeyBind]];
+				trigKb["32"]["Position"] = UDim2.new(0.02455, 0, -0.00359, 0);
+
+				trigKb["30"].MouseEnter:Connect(function()
+					isHold = true
+				end)
+				trigKb["30"].MouseLeave:Connect(function()
+					isHold = false
+				end)
+
+				trigKb["2c"].Activated:Connect(function()
+					-- Toggle `val` and update the background color
+					if val == false then
+						trigKb["2c"].BackgroundColor3 = color
+						val = true
+					else
+						trigKb["2c"].BackgroundColor3 = Color3.fromRGB(83, 83, 83)
+						val = false
+					end
+
+					-- Call the `callback` function with the updated `val`
+					callback(val)
+				end)
+
+				-- Connecting an InputBegan event to detect when the user presses a key
+				UIS.InputBegan:Connect(function(input, processed)
+					-- If the input has already been processed, ignore it
+					if processed then return end
+
+					-- Check if the input is from the keyboard and if the keybind selection is active (isHold)
+					if input.UserInputType == Enum.UserInputType.Keyboard and isHold == true then
+						selectedKB = input.KeyCode -- Store the KeyCode of the selected key
+
+						-- Get the last letter of the KeyCode name
+						local keyName = selectedKB.Name -- The full name of the KeyCode
+						local lastLetter = keyName:sub(-1) -- Extract the last letter of the name
+
+						-- Update the text with the last letter of the selected key name
+						trigKb["32"].Text = lastLetter
+					end
+
+					-- Check if a key has been selected and the input matches the selected key
+					if selectedKB and selectedKB ~= Enum.KeyCode.Unknown and input.KeyCode == selectedKB then
+						if val == false then
+							trigKb["2c"].BackgroundColor3 = color -- Change the background color to 'color'
+							val = true
+						else
+							trigKb["2c"].BackgroundColor3 = Color3.fromRGB(83, 83, 83) -- Revert to the original color
+							val = false
+						end
+
+						callback(val) -- Call the callback function with the current value of 'val'
+					end
+				end)
+
+				return trigKb
+			end
+
+			function Section:CreateTextBox(name)
+				local tb = {}
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TextBox
+				tb["33"] = Instance.new("TextLabel", Section["14"]);
+				tb["33"]["TextStrokeTransparency"] = 0;
+				tb["33"]["BorderSizePixel"] = 0;
+				tb["33"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+				tb["33"]["TextYAlignment"] = Enum.TextYAlignment.Top;
+				tb["33"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+				tb["33"]["TextSize"] = 14;
+				tb["33"]["FontFace"] = Font.new([[rbxasset://fonts/families/Michroma.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+				tb["33"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+				tb["33"]["BackgroundTransparency"] = 1;
+				tb["33"]["Size"] = UDim2.new(0, 208, 0, 42);
+				tb["33"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				tb["33"]["Name"] = name;
+				tb["33"]["Text"] = name;
+				tb["33"]["Position"] = UDim2.new(0, 0, 0.62069, 0);
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TextBox.TextBoxHolder
+				tb["34"] = Instance.new("Frame", tb["33"]);
+				tb["34"]["BorderSizePixel"] = 0;
+				tb["34"]["BackgroundColor3"] = Color3.fromRGB(16, 16, 16);
+				tb["34"]["Size"] = UDim2.new(0, 208, 0, 23);
+				tb["34"]["Position"] = UDim2.new(0, 0, 0.401, 0);
+				tb["34"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				tb["34"]["Name"] = name;
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TextBox.TextBoxHolder.UIStroke
+				tb["35"] = Instance.new("UIStroke", tb["34"]);
+				tb["35"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+				tb["35"]["Color"] = Color3.fromRGB(48, 48, 48);
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.TextBox.TextBoxHolder.TextBox
+				tb["36"] = Instance.new("TextBox", tb["34"]);
+				tb["36"]["CursorPosition"] = -1;
+				tb["36"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+				tb["36"]["BorderSizePixel"] = 0;
+				tb["36"]["TextSize"] = 13;
+				tb["36"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+				tb["36"]["FontFace"] = Font.new([[rbxasset://fonts/families/Michroma.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+				tb["36"]["ClearTextOnFocus"] = false;
+				tb["36"]["PlaceholderText"] = [[PlaceholderText]];
+				tb["36"]["Size"] = UDim2.new(0, 200, 0, 23);
+				tb["36"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				tb["36"]["Text"] = "";
+				tb["36"]["PlaceholderText"] = name;
+				tb["36"]["BackgroundTransparency"] = 1;
+
+				function tb:GetText()
+					return tb["36"].Text
+				end
+
+				return tb
+			end
+
+			function Section:CreateSlider(text, min, max, callback)
+				local sld = {}
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.Slider
+				sld["37"] = Instance.new("TextLabel", Section["14"]);
+				sld["37"]["TextStrokeTransparency"] = 0;
+				sld["37"]["BorderSizePixel"] = 0;
+				sld["37"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+				sld["37"]["TextYAlignment"] = Enum.TextYAlignment.Top;
+				sld["37"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+				sld["37"]["TextSize"] = 14;
+				sld["37"]["FontFace"] = Font.new([[rbxasset://fonts/families/Michroma.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+				sld["37"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+				sld["37"]["BackgroundTransparency"] = 1;
+				sld["37"]["Size"] = UDim2.new(0, 208, 0, 42);
+				sld["37"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				sld["37"]["Name"] = [[Slider]];
+				sld["37"]["Text"] = text;
+				sld["37"]["Position"] = UDim2.new(0, 0, 0.62069, 0);
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.Slider.TextBoxHolder
+				sld["38"] = Instance.new("Frame", sld["37"]);
+				sld["38"]["BorderSizePixel"] = 0;
+				sld["38"]["BackgroundColor3"] = Color3.fromRGB(16, 16, 16);
+				sld["38"]["Size"] = UDim2.new(0, 208, 0, 23);
+				sld["38"]["Position"] = UDim2.new(0, 0, 0.401, 0);
+				sld["38"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				sld["38"]["Name"] = [[TextBoxHolder]];
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.Slider.TextBoxHolder.UIStroke
+				sld["39"] = Instance.new("UIStroke", sld["38"]);
+				sld["39"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+				sld["39"]["Color"] = Color3.fromRGB(48, 48, 48);
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.Slider.TextBoxHolder.Bar
+				sld["3a"] = Instance.new("Frame", sld["38"]);
+				sld["3a"]["BorderSizePixel"] = 0;
+				sld["3a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+				sld["3a"]["Size"] = UDim2.new(0, 183, 0, 4);
+				sld["3a"]["Position"] = UDim2.new(0.0625, 0, 0.3913, 0);
+				sld["3a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				sld["3a"]["Name"] = [[Bar]];
+				sld["3a"]["BackgroundTransparency"] = 0.7;
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.Slider.TextBoxHolder.Bar.UICorner
+				sld["3b"] = Instance.new("UICorner", sld["3a"]);
+				sld["3b"]["CornerRadius"] = UDim.new(1, 0);
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.Slider.TextBoxHolder.Bar.DraggableCircle
+				sld["3c"] = Instance.new("Frame", sld["3a"]);
+				sld["3c"]["BorderSizePixel"] = 0;
+				sld["3c"]["BackgroundColor3"] = Color3.fromRGB(75, 75, 75);
+				sld["3c"]["Size"] = UDim2.new(0, 15, 0, 15);
+				sld["3c"]["Position"] = UDim2.new(-0.04634, 0, -1.32609, 0);
+				sld["3c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				sld["3c"]["Name"] = [[DraggableCircle]];
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.Slider.TextBoxHolder.Bar.DraggableCircle.UICorner
+				sld["3d"] = Instance.new("UICorner", sld["3c"]);
+				sld["3d"]["CornerRadius"] = UDim.new(1, 0);
+
+
+				-- StarterGui.UI.Holder.MainFrame.CProvider.TabOne.SectionHolder.Section.Content.Slider.TextBoxHolder.count
+				sld["3e"] = Instance.new("TextLabel", sld["38"]);
+				sld["3e"]["TextStrokeTransparency"] = 0;
+				sld["3e"]["BorderSizePixel"] = 0;
+				sld["3e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+				sld["3e"]["TextSize"] = 13;
+				sld["3e"]["FontFace"] = Font.new([[rbxasset://fonts/families/Michroma.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+				sld["3e"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+				sld["3e"]["BackgroundTransparency"] = 1;
+				sld["3e"]["Size"] = UDim2.new(0, 208, 0, 19);
+				sld["3e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+				sld["3e"]["Text"] = min .. " / " .. max;
+				sld["3e"]["Name"] = [[count]];
+				sld["3e"]["Position"] = UDim2.new(0, 0, 0.05547, 0);
+
+				local bar = sld["3a"]
+				local draggableCircle = sld["3c"]
+				local barAbsoluteSize, barAbsolutePosition
+
+				-- Function to update slider value
+				local function updateSlider(inputPosition)
+					barAbsoluteSize = bar.AbsoluteSize
+					barAbsolutePosition = bar.AbsolutePosition
+
+					-- Calculate relative position within the bar
+					local relativePosition = math.clamp((inputPosition.X - barAbsolutePosition.X) / barAbsoluteSize.X, 0, 1)
+					-- Update draggable circle position, centered on the bar
+					draggableCircle.Position = UDim2.new(relativePosition, -draggableCircle.Size.X.Offset / 2, 0, -5)
+
+					-- Calculate and set the slider value
+					local value = math.floor(min + (max - min) * relativePosition)
+					sld["3e"].Text = tostring(value)
+
+					if callback then
+						callback(value)
+					end
+				end
+
+				-- Connect events to the draggable circle
+				draggableCircle.InputBegan:Connect(function(input)
+					if input.UserInputType == Enum.UserInputType.MouseButton1 then
+						local dragging = true
+
+						local connection
+						connection = UIS.InputChanged:Connect(function(moveInput)
+							if moveInput.UserInputType == Enum.UserInputType.MouseMovement and dragging then
+								updateSlider(moveInput.Position)
+							end
+						end)
+
+						UIS.InputEnded:Connect(function(endInput)
+							if endInput.UserInputType == Enum.UserInputType.MouseButton1 then
+								dragging = false
+								connection:Disconnect()
+							end
+						end)
+					end
+				end)
+
+				return sld
+			end
+
+			return Section
+		end
+		
+		return Tab
+	end
+	
+	return Gui 
+end
+
+function Lib:CreateNotification(title, text, color, cd) 
+	task.spawn(function()
+		-- StarterGui.UI.NotificationList.NotificationHolder
+		Gui["43"] = Instance.new("Frame", Gui["42"]);
+		Gui["43"]["BorderSizePixel"] = 0;
+		Gui["43"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+		Gui["43"]["Size"] = UDim2.new(0, 227, 0, 123);
+		Gui["43"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+		Gui["43"]["Name"] = [[NotificationHolder]];
+
+
+		-- StarterGui.UI.NotificationList.NotificationHolder.UIStroke
+		Gui["44"] = Instance.new("UIStroke", Gui["43"]);
+		Gui["44"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+
+		-- StarterGui.UI.NotificationList.NotificationHolder.UIGradient
+		Gui["45"] = Instance.new("UIGradient", Gui["43"]);
+		Gui["45"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, color),ColorSequenceKeypoint.new(1.000, color)};
+
+
+		-- StarterGui.UI.NotificationList.NotificationHolder.MainFrame
+		Gui["46"] = Instance.new("Frame", Gui["43"]);
+		Gui["46"]["BorderSizePixel"] = 0;
+		Gui["46"]["BackgroundColor3"] = Color3.fromRGB(26, 26, 26);
+		Gui["46"]["Size"] = UDim2.new(0, 225, 0, 121);
+		Gui["46"]["Position"] = UDim2.new(0.00359, 0, 0.00813, 0);
+		Gui["46"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+		Gui["46"]["Name"] = [[MainFrame]];
+
+
+		-- StarterGui.UI.NotificationList.NotificationHolder.MainFrame.Title
+		Gui["47"] = Instance.new("TextLabel", Gui["46"]);
+		Gui["47"]["TextStrokeTransparency"] = 0;
+		Gui["47"]["BorderSizePixel"] = 0;
+		Gui["47"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+		Gui["47"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+		Gui["47"]["TextSize"] = 16;
+		Gui["47"]["FontFace"] = Font.new([[rbxasset://fonts/families/Michroma.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+		Gui["47"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+		Gui["47"]["BackgroundTransparency"] = 1;
+		Gui["47"]["Size"] = UDim2.new(0, 200, 0, 20);
+		Gui["47"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+		Gui["47"]["Text"] = title;
+		Gui["47"]["Name"] = [[Title]];
+		Gui["47"]["Position"] = UDim2.new(0.05333, 0, 0.06612, 0);
+
+
+		-- StarterGui.UI.NotificationList.NotificationHolder.MainFrame.Message
+		Gui["48"] = Instance.new("TextLabel", Gui["46"]);
+		Gui["48"]["TextWrapped"] = true;
+		Gui["48"]["TextStrokeTransparency"] = 0;
+		Gui["48"]["BorderSizePixel"] = 0;
+		Gui["48"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+		Gui["48"]["TextYAlignment"] = Enum.TextYAlignment.Top;
+		Gui["48"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+		Gui["48"]["TextSize"] = 14;
+		Gui["48"]["FontFace"] = Font.new([[rbxasset://fonts/families/Michroma.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+		Gui["48"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+		Gui["48"]["BackgroundTransparency"] = 1;
+		Gui["48"]["Size"] = UDim2.new(0, 200, 0, 79);
+		Gui["48"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+		Gui["48"]["Text"] = text;
+		Gui["48"]["Name"] = [[Message]];
+		Gui["48"]["Position"] = UDim2.new(0.053, 0, 0.251, 0);
+
+		task.wait(cd)
+
+		Gui["43"]:Destroy()
+	end)
+end
+
+return Lib
